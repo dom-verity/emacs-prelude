@@ -9,12 +9,13 @@
 
 ;; Commentary
 
-;; On MacOS configure dired to use GNU versions of the standard 
+;; On MacOS configure dired to use GNU versions of the standard
 ;; utilities ls, df, chmod etc.
 
 ;; Get these by installing the homebrew `coreutils` package.
 
-(setq-default insert-directory-program "gls")
-(setq-default directory-free-space-program "gdf")
-(setq-default dired-chmod-program "gchmod")
-(setq-default dired-chown-program "gchown")
+(when (eq system-type 'darwin)
+  (setq-default insert-directory-program "gls")
+  (setq-default directory-free-space-program "gdf")
+  (setq-default dired-chmod-program "gchmod")
+  (setq-default dired-chown-program "gchown"))
