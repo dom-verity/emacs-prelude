@@ -1,4 +1,4 @@
-;;; auto-install.el --- Dom's Prelude Config: Packages to automatically install.
+;;; auto-install.el --- Dom's Prelude Config: Packages to auto install.
 ;;
 ;; Copyright © 2022 Dom Verity
 ;;
