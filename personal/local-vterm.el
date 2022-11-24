@@ -1,4 +1,4 @@
-;;; config-vterm.el --- Dom's Prelude Config: vterm settings
+;;; local-vterm.el --- Dom's Prelude Config: vterm settings
 ;;
 ;; Copyright © 2022 Dom Verity
 ;;

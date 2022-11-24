@@ -1,4 +1,4 @@
-;;; config-latex-mode.el --- Dom's Prelude Config: Custom latex mode config.
+;;; local-latex-mode.el --- Dom's Prelude Config: Custom latex mode config.
 ;;
 ;; Copyright © 2022 Dom Verity
 ;;
