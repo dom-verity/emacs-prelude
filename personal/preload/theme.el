@@ -10,4 +10,4 @@
 ;; Commentary
 
 (setq prelude-theme 'solarized-light)
-(set-face-attribute 'default nil :font "Office Code Pro-14")
+(add-to-list 'default-frame-alist '(font . "Office Code Pro-14"))
