@@ -14,3 +14,6 @@
 
 ;; Reload YASnippets.
 (yas-reload-all)
+
+;; Toggle whitespace mode locally rather than globally
+(global-whitespace-mode 0)

@@ -42,5 +42,6 @@
               (reftex-mode 1)
               (yas-minor-mode 1)
               (setq reftex-plug-into-AUCTeX t)
-              (setq whitespace-style (delete 'lines-tail whitespace-style))
+              (whitespace-mode 1)
+              (whitespace-toggle-options 'lines-tail)
               (auto-fill-mode -1)) t)
