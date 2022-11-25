@@ -11,4 +11,5 @@
 
 (prelude-require-packages
  '(vterm
-   yasnippet-snippets))
+   yasnippet-snippets
+   restart-emacs))
