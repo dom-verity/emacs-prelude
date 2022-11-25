@@ -8,3 +8,6 @@
 ;; This file is not part of GNU Emacs.
 
 ;; Commentary
+
+;; Add to the list of locals saved by Emacs desktop
+(add-to-list 'desktop-locals-to-save 'whitespace-style)

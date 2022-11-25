@@ -41,5 +41,5 @@
               (LaTeX-math-mode 1)
               (reftex-mode 1)
               (setq reftex-plug-into-AUCTeX t)
-              (whitespace-mode -1)
+              (setq whitespace-style (delete 'lines-tail whitespace-style))
               (auto-fill-mode -1)) t)
