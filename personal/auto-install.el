@@ -10,4 +10,5 @@
 ;; Commentary
 
 (prelude-require-packages
- '(vterm))
+ '(vterm
+   yasnippet-snippets))

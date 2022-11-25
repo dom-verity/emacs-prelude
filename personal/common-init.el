@@ -11,3 +11,6 @@
 
 ;; Add to the list of locals saved by Emacs desktop
 (add-to-list 'desktop-locals-to-save 'whitespace-style)
+
+;; Reload YASnippets.
+(yas-reload-all)
