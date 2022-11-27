@@ -1,4 +1,4 @@
-;;; local-vterm.el --- Dom's Prelude Config: vterm settings
+;;; local-rust.el --- Dom's Prelude Config: local rust settings.
 ;;
 ;; Copyright © 2022 Dom Verity
 ;;
@@ -7,7 +7,7 @@
 
 ;; This file is not part of GNU Emacs.
 
-;;; Commentary
+;;; Commentary:
 
 ;;; License:
 
@@ -28,8 +28,4 @@
 
 ;;; Code:
 
-;; Keybindings and settings for the vterm terminal.
-
-(global-set-key (kbd "C-x M-m") 'vterm-other-window)
-
-;;; local-vterm.el ends here
+;;; local-rust.el ends here
