@@ -47,11 +47,12 @@
 
 ;;; Code:
 
-(prelude-require-packages '(tuareg utop merlin flycheck-ocaml))
+(prelude-require-packages '(tuareg utop merlin merlin-company flycheck-ocaml))
 
 (require 'tuareg)
 (require 'utop)
 (require 'merlin)
+(require 'merlin-company)
 
 (setq auto-mode-alist
       (append '(("\\.ml[ily]?\\'" . tuareg-mode)
@@ -80,7 +81,7 @@
 
 ;; Merlin also offers support for autocomplete, uncomment this next line
 ;; to activate it.
-;; (setq merlin-use-auto-complete-mode t)
+(setq merlin-use-auto-complete-mode t)
 
 (setq utop-command "opam config exec utop -- -emacs"
       merlin-error-after-save nil)
