@@ -31,6 +31,7 @@
 (prelude-require-packages
  '(vterm
    yasnippet-snippets
-   restart-emacs))
+   restart-emacs
+   flyspell-correct-ivy))
 
 ;;; auto-install.el ends here

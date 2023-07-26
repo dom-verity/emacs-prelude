@@ -37,4 +37,10 @@
 ;; Toggle whitespace mode locally rather than globally
 (global-whitespace-mode 0)
 
+;; Turn off guru mode to prevent messages about arrow keys
+(setq prelude-guru nil)
+
+;; Use ivy to do flyspell correction
+(define-key flyspell-mode-map (kbd "C-c $") 'flyspell-correct-wrapper)
+
 ;;; common-init.el ends here
