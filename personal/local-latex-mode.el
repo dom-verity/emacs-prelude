@@ -52,6 +52,23 @@
      (output-pdf "skimmer")
      (output-html "open"))))
 
+;; Configure reftex for theorem-like environments
+
+;; Inserting references
+(setq reftex-label-alist
+      '(("thm" ?h "thm:" "~\\ref{%s}" t ("theorem" "thm."))
+        ("lem" ?l "lem:" "~\\ref{%s}" t ("lemma" "lem."))
+        ("prop" ?p "prop:" "~\\ref{%s}" t ("proposition" "prop."))
+        ("cor" ?c "cor:" "~\\ref{%s}" t ("corollary" "cor."))
+        ("obs" ?o "obs:" "~\\ref{%s}" t ("observation" "obs."))
+        ("dig" ?g "dig:" "~\\ref{%s}" t ("digression" "dig."))
+        ("rec" ?r "rec:" "~\\ref{%s}" t ("recollection" "rec."))
+        ("rmk" ?m "rmk:" "~\\ref{%s}" t ("remark" "rmk."))
+        ("defn" ?d "defn:" "~\\ref{%s}" t ("definition" "defn."))
+        ("ntn" ?a "ntn:" "~\\ref{%s}" t ("notation" "ntn."))
+        ("ex" ?x "ex:" "~\\ref{%s}" t ("example" "ex."))
+        ))
+
 ;; User hook
 (add-hook 'prelude-latex-mode-hook
           #'(lambda ()
@@ -61,6 +78,19 @@
               (reftex-mode 1)
               (yas-minor-mode 1)
               (setq reftex-plug-into-AUCTeX t)
+              (LaTeX-add-environments
+               '("thm" LaTeX-env-label)
+               '("lem" LaTeX-env-label)
+               '("prop" LaTeX-env-label)
+               '("cor" LaTeX-env-label)
+               '("obs" LaTeX-env-label)
+               '("dig" LaTeX-env-label)
+               '("rec" LaTeX-env-label)
+               '("rmk" LaTeX-env-label)
+               '("defn" LaTeX-env-label)
+               '("ntn" LaTeX-env-label)
+               '("ex" LaTeX-env-label)
+               )
               (whitespace-mode 1)
               (whitespace-toggle-options 'lines-tail)
               (auto-fill-mode -1)) t)
