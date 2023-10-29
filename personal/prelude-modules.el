@@ -82,14 +82,14 @@
 ;; (require 'prelude-literate-programming) ;; Setup for Literate Programming
 ;; (require 'prelude-lsp) ;; Base setup for the Language Server Protocol
 ;; (require 'prelude-lua)
-;; (require 'prelude-ocaml)
+(require 'prelude-ocaml)
 (require 'prelude-perl)
 ;; (require 'prelude-python)
 ;; (require 'prelude-racket)
 ;; (require 'prelude-ruby)
 ;; (require 'prelude-rust)
 ;; (require 'prelude-scala)
-;; (require 'prelude-scheme)
+(require 'prelude-scheme)
 (require 'prelude-shell)
 ;; (require 'prelude-scss)
 ;; (require 'prelude-ts)
