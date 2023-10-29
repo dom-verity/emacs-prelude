@@ -32,6 +32,7 @@
  '(vterm
    yasnippet-snippets
    restart-emacs
-   flyspell-correct-ivy))
+   flyspell-correct-ivy
+   names))
 
 ;;; auto-install.el ends here
