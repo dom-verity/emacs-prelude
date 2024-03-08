@@ -75,6 +75,7 @@
 
 ;; User hook
 (defun doms-latex-mode-hook ()
+  (turn-off-auto-fill)
   (visual-line-mode 1)
   (flyspell-mode 1)
   (LaTeX-math-mode 1)
