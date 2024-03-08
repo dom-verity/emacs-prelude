@@ -1,4 +1,4 @@
-;;; local-latex-mode.el --- Dom's Prelude Config: Custom latex mode config.
+;;; local-latex.el --- Dom's Prelude Config: Custom latex mode config.
 ;;
 ;; Copyright © 2022 Dom Verity
 ;;
@@ -39,6 +39,8 @@
 (setq TeX-source-correlate-mode t)
 (setq TeX-source-correlate-start-server t)
 
+(auctex-latexmk-setup)
+
 ;; Configure viewer.
 (when (eq system-type 'darwin)
   (add-to-list
@@ -75,6 +77,7 @@
               (visual-line-mode 1)
               (flyspell-mode 1)
               (LaTeX-math-mode 1)
+              (flycheck-mode 0)
               (reftex-mode 1)
               (yas-minor-mode 1)
               (setq reftex-plug-into-AUCTeX t)
@@ -93,6 +96,10 @@
                )
               (whitespace-mode 1)
               (whitespace-toggle-options 'lines-tail)
+              (setq LaTeX-indent-level 4)
+              (setq LaTeX-item-indent -4)
+              (setq LaTeX-left-right-indent-level 4)
+              (setq TeX-brace-indent-level 4)
               (auto-fill-mode -1)) t)
 
 ;;; local-latex-mode.el ends here

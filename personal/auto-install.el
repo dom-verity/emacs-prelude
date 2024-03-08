@@ -33,6 +33,7 @@
    yasnippet-snippets
    restart-emacs
    flyspell-correct-ivy
-   names))
+   names
+   auctex-latexmk))
 
 ;;; auto-install.el ends here
