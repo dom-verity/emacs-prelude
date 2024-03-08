@@ -28,7 +28,9 @@
 
 ;;; Code:
 
-(load-file (let ((coding-system-for-read 'utf-8))
-             (shell-command-to-string "agda-mode locate")))
+(unless (fboundp 'agda2-mode)
+  (load-file
+   (let ((coding-system-for-read 'utf-8))
+     (shell-command-to-string "agda-mode locate"))))
 
 ;;; local-adga.el ends here
