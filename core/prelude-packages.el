@@ -52,6 +52,7 @@
 ;; set package-user-dir to be relative to Prelude install path
 (setq package-user-dir (expand-file-name "elpa" prelude-dir))
 (package-initialize)
+(package-refresh-contents)
 
 ;; install & enable use-package
 (unless (package-installed-p 'use-package)
