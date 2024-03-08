@@ -30,29 +30,17 @@
 
 ;;; Code:
 
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-
-(setq TeX-auto-untabify t)
-(setq TeX-PDF-mode t)
-(setq TeX-source-correlate-mode t)
-(setq TeX-source-correlate-start-server t)
-
+;; Enable building using LatexMk
 (auctex-latexmk-setup)
 
-;; Configure viewer.
+;; Configure view to use Skim.
 (when (eq system-type 'darwin)
-  (add-to-list
-   'TeX-view-program-list
-   '("skimmer"
-     "displayline -r -b %n %o %b"
-     "displayline"))
-  (setq-default
-   TeX-view-program-selection
-   '((output-dvi "skimmer")
-     (output-pdf "skimmer")
-     (output-html "open"))))
+  (add-to-list 'TeX-view-program-list
+               '("Skimmer" "displayline -r -b %n %o %b" "displayline"))
+  (setq TeX-view-program-selection
+   '((output-dvi "Skimmer")
+     (output-pdf "Skimmer")
+     (output-html "HTML Viewer"))))
 
 ;; Configure reftex for theorem-like environments
 
@@ -68,38 +56,40 @@
         ("rmk" ?m "rmk:" "~\\ref{%s}" t ("remark" "rmk."))
         ("defn" ?d "defn:" "~\\ref{%s}" t ("definition" "defn."))
         ("ntn" ?a "ntn:" "~\\ref{%s}" t ("notation" "ntn."))
-        ("ex" ?x "ex:" "~\\ref{%s}" t ("example" "ex."))
+        ("ex" ?x "ex:" "~\\ref{%descs}" t ("example" "ex."))
         ))
 
+;; Inserting bespoke environements
+(setq doms-LaTeX-environments
+      '(("thm" LaTeX-env-label)
+        ("lem" LaTeX-env-label)
+        ("prop" LaTeX-env-label)
+        ("cor" LaTeX-env-label)
+        ("obs" LaTeX-env-label)
+        ("dig" LaTeX-env-label)
+        ("rec" LaTeX-env-label)
+        ("rmk" LaTeX-env-label)
+        ("defn" LaTeX-env-label)
+        ("ntn" LaTeX-env-label)
+        ("ex" LaTeX-env-label)))
+
 ;; User hook
-(add-hook 'prelude-latex-mode-hook
-          #'(lambda ()
-              (visual-line-mode 1)
-              (flyspell-mode 1)
-              (LaTeX-math-mode 1)
-              (flycheck-mode 0)
-              (reftex-mode 1)
-              (yas-minor-mode 1)
-              (setq reftex-plug-into-AUCTeX t)
-              (LaTeX-add-environments
-               '("thm" LaTeX-env-label)
-               '("lem" LaTeX-env-label)
-               '("prop" LaTeX-env-label)
-               '("cor" LaTeX-env-label)
-               '("obs" LaTeX-env-label)
-               '("dig" LaTeX-env-label)
-               '("rec" LaTeX-env-label)
-               '("rmk" LaTeX-env-label)
-               '("defn" LaTeX-env-label)
-               '("ntn" LaTeX-env-label)
-               '("ex" LaTeX-env-label)
-               )
-              (whitespace-mode 1)
-              (whitespace-toggle-options 'lines-tail)
-              (setq LaTeX-indent-level 4)
-              (setq LaTeX-item-indent -4)
-              (setq LaTeX-left-right-indent-level 4)
-              (setq TeX-brace-indent-level 4)
-              (auto-fill-mode -1)) t)
+(defun doms-latex-mode-hook ()
+  (visual-line-mode 1)
+  (flyspell-mode 1)
+  (LaTeX-math-mode 1)
+  (flycheck-mode 0)
+  (reftex-mode 1)
+  (yas-minor-mode 1)
+  (setq reftex-plug-into-AUCTeX t)
+  (mapcar #'LaTeX-add-environments doms-LaTeX-environments)
+  (whitespace-mode 1)
+  (whitespace-toggle-options 'lines-tail)
+  (setq LaTeX-indent-level 4)
+  (setq LaTeX-item-indent -4)
+  (setq LaTeX-left-right-indent-level 4)
+  (setq TeX-brace-indent-level 4))
+
+(add-hook 'prelude-latex-mode-hook 'doms-latex-mode-hook t)
 
 ;;; local-latex-mode.el ends here

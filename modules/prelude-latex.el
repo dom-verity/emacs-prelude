@@ -51,8 +51,11 @@
 ;; AUCTeX configuration
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
-(setq TeX-close-quote "")
-(setq TeX-open-quote "")
+(setq TeX-auto-untabify t)
+(setq TeX-source-correlate-mode t)
+(setq TeX-source-correlate-start-server t)
+;(setq TeX-close-quote "")
+;(setq TeX-open-quote "")
 
 (setq-default TeX-master nil)
 
