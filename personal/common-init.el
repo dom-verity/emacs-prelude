@@ -64,4 +64,20 @@
      (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
      (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
+;; Modify C-x C-c so that without a prefix it closes the current
+;; emacsclient and with a prefix it kills emacs.
+
+(defun dom/emacsclient-c-x-c-c (&optional arg)
+  "If running in emacsclient, make C-x C-c exit frame, and C-u C-x C-c exit Emacs."
+  (interactive "P") ; prefix arg in raw form
+  (if arg
+      (save-buffers-kill-emacs)
+    (save-buffers-kill-terminal)))
+
+(if (daemonp)
+    (global-set-key (kbd "C-x C-c") #'dom/emacsclient-c-x-c-c))
+
+;; Always follow symbolic links to the actual file
+(setq vc-follow-symlinks t)
+
 ;;; common-init.el ends here
