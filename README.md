@@ -1,5 +1,5 @@
 [![License GPL 3][badge-license]](http://www.gnu.org/licenses/gpl-3.0.txt)
-[![CI](https://github.com/bbatsov/prelude/workflows/CI/badge.svg)](https://github.com/bbatsov/prelude/actions/workflows/ci.yml)
+[![CI](https://github.com/dom-verity/emacs-prelude/actions/workflows/ci.yml/badge.svg?branch=doms-prelude)](https://github.com/dom-verity/emacs-prelude/actions/workflows/ci.yml)
 [![Patreon](https://img.shields.io/badge/patreon-donate-orange.svg)](https://www.patreon.com/bbatsov)
 [![Discord](https://img.shields.io/badge/chat-on%20discord-7289da.svg?sanitize=true)](https://discord.gg/3Cf2Qpyry5)
 
