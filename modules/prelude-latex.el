@@ -30,7 +30,9 @@
 
 ;;; Code:
 
-(prelude-require-packages '(auctex cdlatex))
+(prelude-require-packages '(auctex auctex-latexmk cdlatex))
+;; Enable building using LatexMk
+(auctex-latexmk-setup)
 (require 'smartparens-latex)
 ;; for case
 (require 'cl-lib)
@@ -79,6 +81,8 @@
   (turn-on-auto-fill)
   (abbrev-mode +1)
   (smartparens-mode +1)
+  (reftex-mode +1)
+  (setq reftex-plug-into-AUCTeX t)
   (cl-case prelude-latex-fast-math-entry
     (LaTeX-math-mode (LaTeX-math-mode 1))
     (cdlatex (turn-on-cdlatex))))

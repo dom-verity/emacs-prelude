@@ -30,9 +30,6 @@
 
 ;;; Code:
 
-;; Enable building using LatexMk
-(auctex-latexmk-setup)
-
 ;; Configure view to use Skim.
 (when (eq system-type 'darwin)
   (add-to-list 'TeX-view-program-list
@@ -74,23 +71,20 @@
         ("ex" LaTeX-env-label)))
 
 ;; User hook
-(defun doms-latex-mode-hook ()
+(defun doms-latex-mode-defaults ()
   (turn-off-auto-fill)
-  (visual-line-mode 1)
+  (visual-line-fill-column-mode 1)
+  (setq fill-column 80)
   (flyspell-mode 1)
-  (LaTeX-math-mode 1)
-  (flycheck-mode 0)
-  (reftex-mode 1)
-  (yas-minor-mode 1)
-  (setq reftex-plug-into-AUCTeX t)
-  (mapcar #'LaTeX-add-environments doms-LaTeX-environments)
-  (whitespace-mode 1)
   (whitespace-toggle-options 'lines-tail)
+  (flycheck-mode 0)
+  (yas-minor-mode 1)
+  (mapcar #'LaTeX-add-environments doms-LaTeX-environments)
   (setq LaTeX-indent-level 4)
   (setq LaTeX-item-indent -4)
   (setq LaTeX-left-right-indent-level 4)
   (setq TeX-brace-indent-level 4))
 
-(add-hook 'prelude-latex-mode-hook 'doms-latex-mode-hook t)
+(add-hook 'prelude-latex-mode-hook 'doms-latex-mode-defaults t)
 
 ;;; local-latex-mode.el ends here

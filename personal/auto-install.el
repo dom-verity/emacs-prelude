@@ -34,6 +34,6 @@
    restart-emacs
    flyspell-correct-ivy
    names
-   auctex-latexmk))
+   visual-fill-column))
 
 ;;; auto-install.el ends here
