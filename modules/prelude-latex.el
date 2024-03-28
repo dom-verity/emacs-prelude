@@ -38,8 +38,12 @@
 (require 'cl-lib)
 
 (with-eval-after-load "company"
-  (prelude-require-packages '(company-auctex))
-  (company-auctex-init))
+  (prelude-require-packages '(company-auctex company-reftex company-math))
+  (company-auctex-init)
+  (add-to-list 'company-backends 'company-reftex-labels)
+  (add-to-list 'company-backends 'company-reftex-citations)
+  (add-to-list 'company-backends 'company-math-symbols-latex)
+  (add-to-list 'company-backends 'company-latex-commands))
 
 (defcustom prelude-latex-fast-math-entry 'LaTeX-math-mode
   "Method used for fast math symbol entry in LaTeX."
