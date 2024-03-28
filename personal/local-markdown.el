@@ -28,4 +28,14 @@
 
 ;;; Code:
 
+(defun doms-markdown-mode-defaults ()
+  (turn-off-auto-fill)
+  (visual-line-fill-column-mode 1)
+  (setq fill-column 80)
+  (flyspell-mode 1)
+  (whitespace-toggle-options 'lines-tail)
+  (yas-minor-mode 1))
+
+(add-hook 'gfm-mode-hook 'doms-markdown-mode-defaults t)
+
 ;;; local-markdown.el ends here
