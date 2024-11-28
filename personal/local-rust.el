@@ -28,14 +28,24 @@
 
 ;;; Code:
 
+(require 'prelude-programming)
+
 (prelude-require-packages '(rustic
                             lsp-mode
                             yasnippet
-                            ron-mode))
+                            ron-mode
+                            tree-sitter
+                            tree-sitter-langs))
+
+(add-to-list 'super-save-predicates
+             (lambda () (not (eq major-mode 'rustic))))
 
 (with-eval-after-load 'rustic
 
-  (defun my/rustic-hook-func ()
+  (defun doms-rustic-mode-defaults ()
+    ;; Format on save
+    (setq rustic-format-trigger 'on-save)
+
     ;; enable tree-sitter for nicer syntax highlighting
     (tree-sitter-mode 1)
     (tree-sitter-hl-mode 1)
@@ -44,23 +54,23 @@
     (yas-minor-mode 1)
 
     ;; Linting via clippy
-    ; (setq lsp-rust-analyzer-cargo-watch-command "clippy")
+    ;; (setq lsp-rust-analyzer-cargo-watch-command "clippy")
 
     ;; Configure lsp-mode
     (setq lsp-ui-doc-enable t)
     (setq lsp-ui-doc-show-with-cursor t)
     (setq lsp-ui-doc-show-with-mouse nil)
-    ; (setq lsp-ui-doc-use-childframe nil)
-    ; (setq lsp-eldoc-render-all t)
-    ; (setq lsp-signature-render-documentation nil)
+    ;; (setq lsp-ui-doc-use-childframe nil)
+    ;; (setq lsp-eldoc-render-all t)
+    ;; (setq lsp-signature-render-documentation nil)
     (setq lsp-ui-sideline-enable nil)
 
     ;; Eldoc configuration
-    ; (setq eldoc-echo-area-prefer-doc-buffer t)
-    ; (setq eldoc-echo-area-use-multiline-p 1)
+    ;; (setq eldoc-echo-area-prefer-doc-buffer t)
+    ;; (setq eldoc-echo-area-use-multiline-p 1)
     )
 
-  (add-hook 'rustic-mode-hook 'my/rustic-hook-func)
+  (add-hook 'rustic-mode-hook 'doms-rustic-mode-defaults)
   )
 
 ;;; local-rust.el ends here

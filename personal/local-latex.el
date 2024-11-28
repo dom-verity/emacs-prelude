@@ -68,7 +68,8 @@
         ("rmk" LaTeX-env-label)
         ("defn" LaTeX-env-label)
         ("ntn" LaTeX-env-label)
-        ("ex" LaTeX-env-label)))
+        ("ex" LaTeX-env-label)
+        ("tikzcd" LaTeX-env-label)))
 
 ;; User hook
 (defun doms-latex-mode-defaults ()

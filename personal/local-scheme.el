@@ -1,4 +1,4 @@
-;;; local-rust.el --- Dom's Prelude Config: local rust settings.
+;;; local-scheme.el --- Dom's Prelude Config: local Scheme setup.
 ;;
 ;; Copyright © 2022 Dom Verity
 ;;
