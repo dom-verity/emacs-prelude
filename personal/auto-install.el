@@ -34,6 +34,8 @@
    restart-emacs
    flyspell-correct-ivy
    names
-   visual-fill-column))
+   visual-fill-column
+   tree-sitter
+   ))
 
 ;;; auto-install.el ends here

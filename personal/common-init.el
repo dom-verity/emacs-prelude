@@ -43,6 +43,10 @@
 ;; Use ivy to do flyspell correction
 (define-key flyspell-mode-map (kbd "C-c $") 'flyspell-correct-wrapper)
 
+;; Setup username and email
+(setq user-full-name "Dom Verity")
+(setq user-mail-address "dom.verity@gmail.com")
+
 ;; Setup tree-sitter available languages alist
 (setq treesit-language-source-alist
    '((bash "https://github.com/tree-sitter/tree-sitter-bash")
