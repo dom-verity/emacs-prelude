@@ -28,9 +28,26 @@
 
 ;;; Code:
 
+(require 'prelude-programming)
+
 (unless (fboundp 'agda2-mode)
   (load-file
    (let ((coding-system-for-read 'utf-8))
-     (shell-command-to-string "agda-mode locate"))))
+     (shell-command-to-string "agda-mode locate")))
+  )
+
+(with-eval-after-load 'agda2-mode
+  (assq-delete-all 'background agda2-highlight-faces)
+
+  (defun doms-agda2-mode-defaults ()
+    (turn-off-auto-fill)
+    (setq fill-column 80)
+    (yas-minor-mode 1)
+    )
+
+  (add-hook 'agda2-mode-hook 'doms-agda2-mode-defaults t)
+)
+
+
 
 ;;; local-adga.el ends here
